@@ -15,7 +15,7 @@ client = InseeApi::Client.new(access_id, secret_key)
 ## Retrieve legal unit informations from the api
 
 ```
-siren_search = InseeApi::Siren.search({ name: "9troisquarts", postcode: "59650", active: true, date: "2020-08-27" })
+siren_search = InseeApi::Siren.search(search: { name: "9troisquarts", postcode: "59650", active: true, date: "2020-08-27" })
 ```
 
 ## Build the gem

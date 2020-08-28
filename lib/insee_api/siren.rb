@@ -11,7 +11,7 @@ module InseeApi
     # code postal => postcode
     # active => Uniquement les établissement actif/fermé/indifférent (true/false/nil)
     # date => Uniquement les établiseement actif a la date renseignée
-    def self.search(search = nil, client: nil)
+    def self.search(search: {}, client: nil)
       raise "Search must be a valid hash" unless search.is_a?(Hash)
       name = search[:name]
       return nil unless name.is_a?(String) && name.size > 0
