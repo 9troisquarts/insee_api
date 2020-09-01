@@ -20,11 +20,11 @@ module InseeApi
 
       query = "raisonSociale:#{name}"
       query += " AND codePostalEtablissement:#{search[:postcode]}" if search[:postcode]
-      query += " AND periode(etatAdministratifEtablissement:#{search[:active] ? 'A' : 'F'})" if search[:active]
+      query += " AND periode(etatAdministratifEtablissement:#{search[:active] ? 'A' : 'F'})" unless search[:active].nil?
       data = {
         q: query
       }
-      data[:date] = search[:date] if search[:date]
+      data[:date] = search[:date] || Date.today
       response = client.send_request(SIREN_ROOT_URL + "/siret", data: data)
 
       return [] unless response["etablissements"] && response["etablissements"].is_a?(Array) && response["etablissements"].size > 0
