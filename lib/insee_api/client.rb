@@ -37,6 +37,8 @@ module InseeApi
           @@access_token = nil
           @@token_expire_at = nil
           send_request(url, data: data, headers: headers, attempt: attempt+1)
+        elsif e.response && e.response.code.to_i == 404
+          return {}
         else
           raise e
         end
