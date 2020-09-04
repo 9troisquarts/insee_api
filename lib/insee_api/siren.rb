@@ -13,7 +13,7 @@ module InseeApi
     # date => Uniquement les établiseement actif a la date renseignée
     def self.search(search: {}, client: nil)
       raise "Search must be a valid hash" unless search.is_a?(Hash)
-      name = search[:name]
+      name = search[:name].gsub(" ", "-")
       return nil unless name.is_a?(String) && name.size > 0
 
       client = client || InseeApi::Client.new

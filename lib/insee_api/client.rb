@@ -39,6 +39,8 @@ module InseeApi
           send_request(url, data: data, headers: headers, attempt: attempt+1)
         elsif e.response && e.response.code.to_i == 404
           return {}
+        elsif e.response && e.response.code.to_i == 400
+          return {}
         else
           raise e
         end
