@@ -18,15 +18,15 @@ module InseeApi
 
       client = client || InseeApi::Client.new
 
-      query = "raisonSociale:#{name}"
+      query = "raisonSociale:\"#{name}\""
       query += " AND codePostalEtablissement:#{search[:postcode]}" if search[:postcode]
       query += " AND periode(etatAdministratifEtablissement:#{search[:active] ? 'A' : 'F'})" unless search[:active].nil?
       data = {
         q: query
       }
       data[:date] = search[:date] || Date.today
+      puts query.inspect if ENV['SIREN_DEBUG']
       response = client.send_request(SIREN_ROOT_URL + "/siret", data: data)
-
       return [] unless response["etablissements"] && response["etablissements"].is_a?(Array) && response["etablissements"].size > 0
       response["etablissements"].map{ |etablissement_json| InseeApi::LegalUnit.new(etablissement_json) }
     end

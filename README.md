@@ -3,7 +3,7 @@
 `gem 'insee_api', github: '9troisquarts/insee_api', :branch => 'master'`
 
 ## Configuration
-    
+
 This gem searches the following locations for credentials
 
 - `ENV['INSEE_ACCESS_ID']` and `ENV['INSEE_ACCESS_SECRET_KEY']`
