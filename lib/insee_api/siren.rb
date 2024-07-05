@@ -3,7 +3,7 @@ module InseeApi
   class Siren
     attr_reader :client
 
-    SIREN_ROOT_URL = "/entreprises/sirene/V3"
+    SIREN_ROOT_URL = "/entreprises/sirene/V3.11"
 
     # Rechercher une unité légale dans la base siren
     # Permet de faire une recherche par

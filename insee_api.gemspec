@@ -1,7 +1,9 @@
+require_relative "lib/insee_api/version"
+
 Gem::Specification.new do |s|
   s.name = "insee_api"
-  s.version = "0.0.5"
-  s.date = "2020-08-27"
+  s.version = InseeApi::VERSION
+  s.date = "2024-07-05"
   s.author = "9troisquarts"
   s.add_runtime_dependency 'rest-client', '>= 2.0.2'
   s.add_runtime_dependency 'json', '>= 2.1.0'

@@ -1,4 +1,3 @@
-require 'insee_api/legal_unit'
 module InseeApi
   class LegalUnit
     attr_reader :name, :siren, :siret, :address_1, :address_2, :postcode, :city, :naf
